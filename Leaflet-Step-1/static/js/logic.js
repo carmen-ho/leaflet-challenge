@@ -35,9 +35,11 @@ var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.g
   
 //var earthquake = 
 
-d3.json(url, function(response) {
+d3.json(url).then(function(response) {
+
   
-  //console.log(response);
+  console.log(response);
+  console.log("test");
   function style(feature) {
     return {
       
@@ -68,9 +70,10 @@ d3.json(url, function(response) {
     }
   }
 
-  function chooseSize(magnitude) {
-    return magnitude * 5;
-  }
+
+function chooseSize(magnitude) {
+  return magnitude * 5;
+}
 
 //L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]),
 
@@ -117,7 +120,7 @@ legend.onAdd = function() {
   };
 
   legend.addTo(myMap);
-  
+})  
   // var location = response[i].geometry;
     
   //       if (location) {
@@ -131,7 +134,7 @@ legend.onAdd = function() {
 
 
 
-});
+// });
 
 
 
